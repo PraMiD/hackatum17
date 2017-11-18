@@ -6,12 +6,12 @@ from PIL import Image
 
 np.set_printoptions(threshold = "Nan", linewidth= "Nan")
 
-im = Image.open("/Users/moritzmakowski/Desktop/Canny Edeg Detection/20130101_PN_JB3.jpg")
+im = Image.open("/home/roper/")
 a = np.asarray(im)
 width = len(a[0])
 height = len(a)
-print "Width:  ", width
-print "Height: ", height
+print("Width:  ", width)
+print("Height: ", height)
 
 b = np.zeros((len(a), len(a[0])), dtype = np.int8)
 c = np.zeros((len(a), len(a[0])), dtype = np.int8)
@@ -51,4 +51,4 @@ for row in range(1, len(b) - 1):
 		
 pic = Image.fromarray(np.uint8(c))
 pic.show()
-#pic.save("CannyRedGreen.png")
+pic.save("CannyRedGreen.png")
