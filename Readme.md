@@ -14,6 +14,23 @@ The *Rohde & Schwarz GmbH & Co. KG.* provided us ~50.000 video frames which were
 
 We used this data and custom-generated frames containing the logos utilizing the (*scripts/generate/insert_logos.py*) to train a neural network. The neural network was based on the *inceptionv3* precomputed **Tensorflow** network provided by Google and was retrained for this task.
 
+We used the following command to train our model:
+
+    python -m scripts.retrain \
+    --bottleneck_dir=tf_files/bottlenecks \
+    --how_many_training_steps=700 \
+    --model_dir=tf_files/models/ \
+    --summaries_dir=tf_files/training_summaries/incept_double/0.01 \
+    --output_graph=tf_files/retrained_graph.pb \
+    --output_labels=tf_files/retrained_labels.txt \
+    --image_dir=<data> \
+    --learning_rate=0.01 \
+    --validation_batch_size=1000 \
+    --train_batch_size=1000
+
+
+To use the neural network for detection and identification of logos, please stick to the description in the scripts subdirectory.
+
 
 Detection and Identification
 ----------------------------

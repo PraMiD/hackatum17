@@ -44,6 +44,8 @@ As a result of this command you get the same dictionary as described above print
 If you are using this approach it is in your responibility which frames shall be classified. We trained the neural network to work on frames prepocessed using the Cenny edge prediction algorithm.
 However, you can also provide normal/colored frames in the input directory.
 
+(As the GUI based solution is currently not ready, the command line interface also includes the Cenny algorithm.)
+
 
 GUI-based Solution
 ------------------
@@ -56,4 +58,4 @@ Nevertheless, it is possible to detect and identify logos using the command line
 Additional Scripts
 ------------------
 
-A description of the additionally provided scripts is contained in their subfolder.
+A description of the additionally provided scripts is contained in their subdirectory.
