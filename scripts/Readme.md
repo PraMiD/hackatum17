@@ -41,6 +41,17 @@ In addition, you can provide a path to a directory containing *.jpg* files to cl
 
 As a result of this command you get the same dictionary as described above printed on stdout.
 
+If you are using this approach it is in your responibility which frames shall be classified. We trained the neural network to work on frames prepocessed using the Cenny edge prediction algorithm.
+However, you can also provide normal/colored frames in the input directory.
+
+
+GUI-based Solution
+------------------
+
+We started to program a GUI-based solution and the basic Python scripts are also contained in the repository.
+
+Due to lack of time, it was not possible to provide a 100% operatable frontend.
+Nevertheless, it is possible to detect and identify logos using the command line interface.
 
 Additional Scripts
 ------------------
