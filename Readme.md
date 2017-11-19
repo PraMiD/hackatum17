@@ -1,11 +1,11 @@
-# <center>UnCennyEdges</center>
+# <center>UnCannyEdges</center>
 ## <center>Logo Detection and Identification</center>
 
-**UnCennyEdges** is a tools that allows to detect and identify the logos of several TV stations on video frames.
+**UnCannyEdges** is a tools that allows to detect and identify the logos of several TV stations on video frames.
 
 This functionality can be used to fight against product piracy or to remove videos containing illegal symbols from on-line platforms, like YouTube.
 In addition, it is possible to detect if there is no logo of a TV station which is the case during commercial brakes.
-Therefore, **UnCennyEdges** could also be used to remove commercial brakes from recordings.
+Therefore, **UnCannyEdges** could also be used to remove commercial brakes from recordings.
 
 Training of Logos
 -----------------

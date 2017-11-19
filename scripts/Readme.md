@@ -41,10 +41,10 @@ In addition, you can provide a path to a directory containing *.jpg* files to cl
 
 As a result of this command you get the same dictionary as described above printed on stdout.
 
-If you are using this approach it is in your responibility which frames shall be classified. We trained the neural network to work on frames prepocessed using the Cenny edge prediction algorithm.
+If you are using this approach it is in your responibility which frames shall be classified. We trained the neural network to work on frames prepocessed using the Canny edge prediction algorithm.
 However, you can also provide normal/colored frames in the input directory.
 
-(As the GUI based solution is currently not ready, the command line interface also includes the Cenny algorithm.)
+(As the GUI based solution is currently not ready, the command line interface also includes the Canny algorithm.)
 
 
 GUI-based Solution

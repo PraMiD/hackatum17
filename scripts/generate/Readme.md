@@ -12,9 +12,9 @@ This script will load video frames from the <frames_dir> and will print the logo
 the *logos.json* file is an example of the logos metadata we need to have access to. We procide the *logos.json* file as an result for the images.
 In addition to the new samples we provide *metadata.txt* files as metadata for the new samples.
 
-Apply Cenny Edge Detection Algorithm on Data
+Apply Canny Edge Detection Algorithm on Data
 --------------------------------------------
-The *cannyOnImages.py* script allows to calculate the Cenny edge prediction metric on video frames:
+The *cannyOnImages.py* script allows to calculate the Canny edge prediction metric on video frames:
 
     python2 cannyOnImages.pu <frames_dir> <output_dir>
 
