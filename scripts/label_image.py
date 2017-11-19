@@ -107,7 +107,7 @@ def classify(files, mode):
     classifications = {}
 
     for file_name in files:
-      if not file_name.endswith(".jpg") and "canny" not in file_name:
+      if not file_name.endswith(".jpg") or "canny" in file_name:
         continue
 
       if mode == "canny":
@@ -162,6 +162,7 @@ def classify(files, mode):
           classification["prediction"] = "no logo"
         classifications[file_name] = classification
 
+    print(classifications)
     return classifications
 
 if len(sys.argv) == 3:
