@@ -151,7 +151,7 @@ def classify(files):
         print(classification)
         classifications[file_name] = classification
 
-  return classifications
+    return classifications
 
 if len(sys.argv) == 2:
     print("Found command line path, starting classification on images in directory.")
