@@ -17,6 +17,10 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+from NewImageSource import my_canny_04
+from PIL import Image
+import numpy as np
+
 import argparse
 import sys
 import os
@@ -85,7 +89,7 @@ def predict(clf):
 
   return predict
 
-def classify(files):
+def classify(files, mode):
   if __name__ == "__main__":
     model_file = "incept_fulldata/retrained_graph.pb"
     label_file = "incept_fulldata/retrained_labels.txt"
@@ -103,8 +107,15 @@ def classify(files):
     classifications = {}
 
     for file_name in files:
-      if not file_name.endswith(".jpg"):
+      if not file_name.endswith(".jpg") and "canny" not in file_name:
         continue
+
+      if mode == "canny":
+        imgArray = np.asarray(Image.open(file_name))
+        file_name = file_name[:-4] + "_canny.jpg"
+        muh = Image.fromarray(np.uint8(my_canny_04(imgArray)))
+        muh.save(file_name)
+
       print("Classify file " + file_name)
       t = read_tensor_from_image_file(file_name,
                                       input_height=input_height,
@@ -144,16 +155,17 @@ def classify(files):
           c["percentage"] += percent
 
         prediction = predict(classification)
+        print(prediction)
         if prediction[1] > threshold:
           classification["prediction"] = prediction
         else:
           classification["prediction"] = "no logo"
-        print(classification)
         classifications[file_name] = classification
 
     return classifications
 
-if len(sys.argv) == 2:
-    print("Found command line path, starting classification on images in directory.")
-    classify(map(lambda f: os.path.join(sys.argv[1], f), os.listdir(sys.argv[1])))
+if len(sys.argv) == 3:
+    mode = sys.argv[2]
+    print("Found command line path, starting classification on images in directory. [Mode: " + mode + "]")
+    classify(map(lambda f: os.path.join(sys.argv[1], f), os.listdir(sys.argv[1])), mode)
 
