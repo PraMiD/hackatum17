@@ -5,7 +5,7 @@ Generate additional Training Data
 
 This script can be used to generate additional training data using a transparent image of a logo and a bunch of video frames without any logo.
 
-    Usage: python2 insert_logs.py <frames_dir>  <frames_output> <additional_cfg_data> <number_of_samples>
+    Usage: python2 insert_logs.py --frames <frames_dir> --outdir <frames_output> --logometa <additional_cfg_data> --samples <number_of_samples>
 
 This script will load video frames from the <frames_dir> and will print the logos (named: <label_in_logos>.png) on these frames. The output of the newly generated <number_of_samples> frames are printed to the <frames_output>. We assume that the *.png* files are in the same directory where we start the script from.
 
