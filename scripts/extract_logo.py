@@ -5,9 +5,25 @@ import csv
 import numpy as np
 from PIL import Image
 
+"""
+    This script is capable of extracting the logos of images.
+    It depends on the old version of the image manipulation library,
+    which is included to offer reproducibility of our data.
+"""
 horizontal_filter = np.array([[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]], dtype=np.int)
 vertical_filter = np.array([[1, 1, 1], [0, 0, 0], [-1, -1, -1]], dtype=np.int)
 
+
+"""
+    Simple filter is applied to the image:
+    | -1 | 0 | 1 |
+    | -1 | 0 | 1 |
+    | -1 | 0 | 1 |
+
+    Its low size leads to efficient computation times,
+    but it is nevertheless capable of detecting edges with 
+    sufficient reliability.
+"""
 def filterLogo(img, x, y, w, h):
     imgArray = np.asarray(img)[y-1:y+h+1, x-1:x+w+1]
     array3h = imageSource.apply3filter(imageSource.colorToBw(imgArray), horizontal_filter)
@@ -23,7 +39,7 @@ else:
 
 METADATA_FILE = "metadata.txt"
 
-positions = set()
+positions = {}
 
 # walk over all stations
 for station in os.listdir(trainPath):
@@ -43,8 +59,12 @@ for station in os.listdir(trainPath):
                 c = line[0]
                 x, y, w, h = [int(a) for a in line[1:]]
                 
-                positions.add((x,y,w,h))
-                
+                if not (x,y,w,h) in positions:
+                    positions[(x,y,w,h)] += 1
+                else:
+                    positions[(x,y,w,h)] = 1
+                images = []
+
                 # walk over all samples
                 for i, sample in enumerate(os.listdir(logoPath)):
                     if sample.endswith(".jpg"):
@@ -59,12 +79,12 @@ for station in os.listdir(trainPath):
                             continue
                         sampleImage = filterLogo(sampleImage,x,y,w,h)
                         
+                        # save for median image
+                        #images.append(sampleImage)
+
                         # store result
                         if not os.path.exists(os.path.join(repoPath, c)):
                             os.makedirs(os.path.join(repoPath, c))
+                            
                         sampleImage.save(os.path.join(repoPath, c, "{}_{}_{}_{}_{}_{}.png".format(c,x,y,w,h,i)))
                         print("> saving: " + os.path.join(repoPath, c, "{}_{}_{}_{}_{}_{}.png".format(c,x,y,w,h,i)))
-
-                        sampleImage.close()
-
-
