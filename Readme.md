@@ -19,4 +19,17 @@ Detection and Identification
 ----------------------------
 
 To detect and identify the logos we provide GUI and console based solutions.
+The Python scripts for this tasks are contained in the scripts directory of this repository.
+
 The neural network returns the accuracy and a identification decision for new video frames with a test set accuracy of ~90%.
+
+
+Dependencies
+------------
+
+Python: We used Python2 during development.
+* Pillow
+* scipy
+* tkinter
+* tensorflow
+* numpy
