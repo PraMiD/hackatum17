@@ -44,7 +44,9 @@ As a result of this command you get the same dictionary as described above print
 If you are using this approach it is in your responibility which frames shall be classified. We trained the neural network to work on frames prepocessed using the Canny edge prediction algorithm.
 However, you can also provide normal/colored frames in the input directory.
 
-(As the GUI based solution is currently not ready, the command line interface also includes the Canny algorithm.)
+**As the GUI based solution is currently not ready, the command line interface also includes the Canny algorithm, to preprocess the file with 'canny edge detection', change the command line call to:**
+
+    python2 label_image.py <path_to_files> canny
 
 
 GUI-based Solution
