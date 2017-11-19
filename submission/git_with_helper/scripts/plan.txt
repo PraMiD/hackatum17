@@ -1,0 +1,15 @@
+Plan for submission:
+
+1. Programming parts/Executables
+    -> retrain.py -> script to train neural networks for logo detection
+    -> label_image.py -> script to label *folder* of images
+    -> various helper scripts including comments
+    -> executable GUI program including code & documentation
+    -> Image manipulation library developed by Moritz
+
+2. Documentation
+    -> Write a script explaining the usage of different parts
+    of our program.
+
+3. Presentation
+    -> Powerpoint Presentation created by Mark.
